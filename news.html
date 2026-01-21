@@ -46,9 +46,20 @@
             display: block;
             transition: background 0.3s;
         }
-        .nav-menu a:hover, .nav-menu a.active {
-            background: #4a7c59;
+        .nav-menu a:hover, .nav-menu a.active { background: #4a7c59; }
+        .nav-menu .dropdown { position: relative; }
+        .nav-menu .dropdown > a::after { content: ' ▾'; font-size: 0.8em; }
+        .nav-menu .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #2c5530;
+            min-width: 150px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
+        .nav-menu .dropdown:hover .dropdown-menu { display: block; }
+        .nav-menu .dropdown-menu a { padding: 12px 20px; border-top: 1px solid #4a7c59; }
         .nav-toggle {
             display: none;
             background: none;
@@ -82,6 +93,9 @@
                 border-top: 1px solid #4a7c59;
             }
             .nav-container { position: relative; }
+            .nav-menu .dropdown-menu { position: static; box-shadow: none; min-width: auto; }
+            .nav-menu .dropdown-menu a { padding-left: 40px; }
+            .nav-menu .dropdown.open .dropdown-menu { display: block; }
         }
         .page-content {
             max-width: 900px;
@@ -98,17 +112,79 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #4a7c59;
         }
-        .construction-box {
-            text-align: center;
-            padding: 60px 20px;
-            background: #fff8e6;
-            border: 2px dashed #d4a843;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 0 auto;
+        .topic-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            justify-content: center;
         }
-        .construction-icon { font-size: 4em; margin-bottom: 20px; }
-        .construction-text { color: #666; font-size: 1.2em; }
+        .topic-tab {
+            padding: 8px 16px;
+            border: 1px solid #2c5530;
+            border-radius: 20px;
+            background: #fff;
+            color: #2c5530;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        .topic-tab:hover, .topic-tab.active {
+            background: #2c5530;
+            color: #fff;
+        }
+        .news-list { margin-top: 20px; }
+        .news-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .news-item:hover { background: #f9f9f9; }
+        .news-date {
+            color: #888;
+            font-size: 0.85em;
+            white-space: nowrap;
+            min-width: 90px;
+        }
+        .news-content { flex: 1; }
+        .news-title {
+            color: #333;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .news-link {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #2c5530;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+        .news-link:hover { background: #4a7c59; }
+        .news-meta {
+            font-size: 0.8em;
+            color: #888;
+        }
+        .news-source {
+            background: #f0f7f1;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+        .news-topic {
+            background: #e8f0e8;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+        @media (max-width: 600px) {
+            .news-item { flex-direction: column; gap: 5px; }
+            .news-date { min-width: auto; }
+        }
         footer {
             text-align: center;
             padding: 30px;
@@ -145,7 +221,13 @@
             </button>
             <ul class="nav-menu">
                 <li><a href="news.html" class="active">訊息專區</a></li>
-                <li><a href="about.html">組織章程</a></li>
+                <li class="dropdown">
+                    <a href="#">關於我們</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="member.html">組織架構</a></li>
+                        <li><a href="about.html">組織章程</a></li>
+                    </ul>
+                </li>
                 <li><a href="documents.html">相關文獻</a></li>
                 <li><a href="join.html">加入我們</a></li>
                 <li><a href="donate.html">捐款支持</a></li>
@@ -155,10 +237,8 @@
 
     <div class="page-content">
         <h1 class="page-title">訊息專區</h1>
-        <div class="construction-box">
-            <div class="construction-icon">🚧</div>
-            <p class="construction-text">頁面建置中，敬請期待</p>
-        </div>
+        <div id="topic-tabs" class="topic-tabs"></div>
+        <div id="news-list" class="news-list"></div>
         <footer>
             <div class="social-links">
                 <a href="https://www.facebook.com/TaiwanWalkForWildlife" target="_blank" aria-label="Facebook">
@@ -173,6 +253,65 @@
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
+        document.querySelectorAll('.dropdown > a').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('open');
+                }
+            });
+        });
+
+        let newsData = [];
+        let currentTopic = '全部';
+
+        fetch('news.json')
+            .then(res => res.json())
+            .then(data => {
+                newsData = data;
+                renderTabs();
+                renderNews();
+            })
+            .catch(err => console.error('Error loading news:', err));
+
+        function renderTabs() {
+            const topics = ['全部', ...new Set(newsData.map(n => n.topic))];
+            const tabsEl = document.getElementById('topic-tabs');
+            tabsEl.innerHTML = topics.map(t =>
+                `<button class="topic-tab${t === currentTopic ? ' active' : ''}" data-topic="${t}">${t}</button>`
+            ).join('');
+            tabsEl.querySelectorAll('.topic-tab').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentTopic = btn.dataset.topic;
+                    tabsEl.querySelectorAll('.topic-tab').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderNews();
+                });
+            });
+        }
+
+        function renderNews() {
+            const filtered = currentTopic === '全部' ? newsData : newsData.filter(n => n.topic === currentTopic);
+            const listEl = document.getElementById('news-list');
+            if (filtered.length === 0) {
+                listEl.innerHTML = '<p style="text-align:center;color:#888;padding:40px;">暫無資料</p>';
+                return;
+            }
+            listEl.innerHTML = filtered.map(n => {
+                const title = n.title.startsWith('http') ? n.source : n.title;
+                return `<div class="news-item">
+                    <span class="news-date">${n.date}</span>
+                    <div class="news-content">
+                        <span class="news-title">${title}</span>
+                        <div class="news-meta">
+                            <span class="news-source">${n.source}</span>
+                            <span class="news-topic">${n.topic}</span>
+                            <a href="${n.url}" target="_blank" class="news-link">查看連結</a>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
     </script>
 </body>
 </html>

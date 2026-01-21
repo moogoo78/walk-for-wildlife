@@ -46,9 +46,20 @@
             display: block;
             transition: background 0.3s;
         }
-        .nav-menu a:hover, .nav-menu a.active {
-            background: #4a7c59;
+        .nav-menu a:hover, .nav-menu a.active { background: #4a7c59; }
+        .nav-menu .dropdown { position: relative; }
+        .nav-menu .dropdown > a::after { content: ' ▾'; font-size: 0.8em; }
+        .nav-menu .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #2c5530;
+            min-width: 150px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
+        .nav-menu .dropdown:hover .dropdown-menu { display: block; }
+        .nav-menu .dropdown-menu a { padding: 12px 20px; border-top: 1px solid #4a7c59; }
         .nav-toggle {
             display: none;
             background: none;
@@ -82,6 +93,9 @@
                 border-top: 1px solid #4a7c59;
             }
             .nav-container { position: relative; }
+            .nav-menu .dropdown-menu { position: static; box-shadow: none; min-width: auto; }
+            .nav-menu .dropdown-menu a { padding-left: 40px; }
+            .nav-menu .dropdown.open .dropdown-menu { display: block; }
         }
         .page-content {
             max-width: 900px;
@@ -145,7 +159,13 @@
             </button>
             <ul class="nav-menu">
                 <li><a href="news.html">訊息專區</a></li>
-                <li><a href="about.html">組織章程</a></li>
+                <li class="dropdown">
+                    <a href="#">關於我們</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="member.html">組織架構</a></li>
+                        <li><a href="about.html">組織章程</a></li>
+                    </ul>
+                </li>
                 <li><a href="documents.html">相關文獻</a></li>
                 <li><a href="join.html" class="active">加入我們</a></li>
                 <li><a href="donate.html">捐款支持</a></li>
@@ -172,6 +192,14 @@
     <script>
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        document.querySelectorAll('.dropdown > a').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('open');
+                }
+            });
         });
     </script>
 </body>
