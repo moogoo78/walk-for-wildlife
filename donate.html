@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>為野生動物而走行動聯盟</title>
+    <title>捐款支持 - 為野生動物而走行動聯盟</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -12,7 +12,6 @@
             color: #333;
             background: #f5f5f5;
         }
-        /* Navigation */
         .navbar {
             background: #2c5530;
             position: sticky;
@@ -47,7 +46,7 @@
             display: block;
             transition: background 0.3s;
         }
-        .nav-menu a:hover { background: #4a7c59; }
+        .nav-menu a:hover, .nav-menu a.active { background: #4a7c59; }
         .nav-toggle {
             display: none;
             background: none;
@@ -82,49 +81,32 @@
             }
             .nav-container { position: relative; }
         }
-        /* Banner */
-        .banner {
-            width: 100%;
-            max-height: 400px;
-            overflow: hidden;
-        }
-        .banner img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        /* Main container */
-        .container {
+        .page-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 20px;
             background: #fff;
-            min-height: 50vh;
+            min-height: calc(100vh - 60px);
         }
-        .about-content {
+        .page-title {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1em;
-        }
-        .about-content p { margin-bottom: 20px; }
-        .animal-icons {
-            font-size: 2.5em;
-            letter-spacing: 10px;
-            margin: 30px 0;
-        }
-        .contact-info {
-            margin-top: 40px;
-            padding: 25px;
-            background: #f0f7f1;
-            border-radius: 10px;
-        }
-        .contact-info a {
             color: #2c5530;
-            font-weight: bold;
-            text-decoration: none;
+            font-size: 2em;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #4a7c59;
         }
-        .contact-info a:hover { text-decoration: underline; }
+        .construction-box {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff8e6;
+            border: 2px dashed #d4a843;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .construction-icon { font-size: 4em; margin-bottom: 20px; }
+        .construction-text { color: #666; font-size: 1.2em; }
         footer {
             text-align: center;
             padding: 30px;
@@ -147,10 +129,6 @@
         }
         .social-links a:hover { background: #4a7c59; }
         .social-links svg { width: 20px; height: 20px; vertical-align: middle; fill: #fff; }
-        @media (max-width: 768px) {
-            .container { padding: 40px 15px; }
-            .animal-icons { letter-spacing: 5px; font-size: 2em; }
-        }
     </style>
 </head>
 <body>
@@ -167,23 +145,16 @@
                 <li><a href="about.html">組織章程</a></li>
                 <li><a href="documents.html">相關文獻</a></li>
                 <li><a href="join.html">加入我們</a></li>
-                <li><a href="donate.html">捐款支持</a></li>
+                <li><a href="donate.html" class="active">捐款支持</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="banner">
-        <img src="banner.jpg" alt="2024 Taiwan Wildlife Parade - 為野生動物而走">
-    </div>
-
-    <div class="container">
-        <div class="about-content">
-            <p>一群關注野生動物保育與伴侶動物福祉的青年，期待能為無法言語野生動物與遊蕩犬貓發聲、讓更多人看見他們的困境。</p>
-            <p class="animal-icons">🦋🐸🐍🦉🦌🐈🐕</p>
-            <div class="contact-info">
-                <p>如有合作邀約請洽：</p>
-                <a href="mailto:taiwanwalkforwildlife@gmail.com">taiwanwalkforwildlife@gmail.com</a>
-            </div>
+    <div class="page-content">
+        <h1 class="page-title">捐款支持</h1>
+        <div class="construction-box">
+            <div class="construction-icon">🚧</div>
+            <p class="construction-text">頁面建置中，敬請期待</p>
         </div>
         <footer>
             <div class="social-links">
