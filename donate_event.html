@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>捐款支持 - 為野生動物而走聯盟</title>
+    <title>聯合勸募 - 為野生動物而走聯盟</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -217,6 +217,50 @@
             font-size: 1.1em;
             font-weight: 500;
         }
+        .fundactivity-info {
+            background: #f0f7f1;
+            border: 2px solid #4a7c59;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .fundactivity-info p {
+            color: #2c5530;
+            font-size: 1.1em;
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+        .fundactivity-info strong {
+            color: #2c5530;
+            font-weight: 600;
+        }
+        .fundactivity-info a {
+            color: #2c5530;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .fundactivity-info a:hover {
+            text-decoration: underline;
+        }
+        .event-fundactivity {
+            background: #fff;
+            border: 2px solid #4a7c59;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .event-fundactivity h3 {
+            color: #2c5530;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .event-fundactivity p {
+            color: #333;
+            line-height: 1.8;
+        }
+        .event-fundactivity strong {
+            color: #2c5530;
+        }
         .donation-methods {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -263,24 +307,6 @@
             background: #999;
             cursor: not-allowed;
             opacity: 0.6;
-        }
-        .donation-notice {
-            margin-top: 25px;
-            padding: 15px 20px;
-            background: #fff8e6;
-            border-left: 4px solid #d4a843;
-            border-radius: 5px;
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.7;
-        }
-        .donation-notice a {
-            color: #2c5530;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .donation-notice a:hover {
-            text-decoration: underline;
         }
         footer {
             text-align: center;
@@ -345,8 +371,8 @@
                 <li class="dropdown">
                     <a href="#" class="active">捐款支持</a>
                     <ul class="dropdown-menu">
-                        <li><a href="donate.html" class="active">捐款說明</a></li>
-                        <li><a href="donate_event.html">聯合勸募</a></li>
+                        <li><a href="donate.html">捐款說明</a></li>
+                        <li><a href="donate_event.html" class="active">聯合勸募</a></li>
                     </ul>
                 </li>
             </ul>
@@ -354,35 +380,41 @@
     </nav>
 
     <div class="page-content">
-        <h1 class="page-title">捐款說明</h1>
-        <div class="donate-section">
-            <h2>捐款用途</h2>
-            <p>以宣揚生物多樣性與凝聚生態及野生動物保育的各界力量，籌辦議題推廣與倡議運動，並以生態及野生動物保育與環境永續為依歸，提升人民的生態及野生動物保育意識並採取行動，推動生物多樣性主流化為宗旨。</p>
+        <h1 class="page-title">「第三屆為野生動物而走」<br/>倡議遊行與全台巡迴教育課程計畫</h1>
+
+        <div class="fundactivity-info">
+            <p><strong>勸募活動期間：</strong>2026/01/08 - 2026/12/31</p>
+            <p><strong>預募金額：</strong>新台幣 2,500,000 元整</p>
+            <p><strong>活動許可文號：</strong>衛部救字第1151360036號</p>
+            <p><a href="https://sasw.mohw.gov.tw/app39/fundactivity/fundactivityDetails/18798606" target="_blank">🔗 「第三屆為野生動物而走」倡議遊行與全台巡迴教育課程計畫 | 公益勸募管理系統</a></p>
         </div>
 
         <div class="donate-section">
-            <h2>捐款方式</h2>
-            <div class="donation-methods">
-                <div class="donation-method">
-                    <h3>匯款轉帳</h3>
-                    <p><strong>郵局名稱：</strong>文山萬盛郵局(局號 000197-2)<br>
-                    <strong>戶名：</strong>社團法人為野生動物而走行動聯盟<br>
-                    <strong>帳號：</strong>00019720115168</p>
-                </div>
-                <div class="donation-method">
-                    <h3>定期定額</h3>
-                    <p>每月固定捐款，長期支持野生動物保育行動</p>
-                    <a href="#" class="donation-btn disabled">即將開放</a>
-                </div>
-                <div class="donation-method">
-                    <h3>單筆捐款</h3>
-                    <p>線上快速捐款，支持我們的保育計畫</p>
-                    <a href="#" class="donation-btn disabled">即將開放</a>
-                </div>
-            </div>
-            <div class="donation-notice">
-                ＊捐款後請Email <a href="mailto:taiwanwalkforwildlife@gmail.com">taiwanwalkforwildlife@gmail.com</a> 告知捐款人資料，以利寄送捐款收據。
-            </div>
+            <h2>活動目的</h2>
+            <p>「為野生動物而走行動聯盟」由學生、公民團體與保育專家共同組成，長期關注台灣野生動物在都市化與人為干擾下的生存困境。野生動物與人類生活空間高度重疊，卻往往無法為自身權益發聲；聯盟希望透過教育、倡議與實際行動，喚起社會對野生動物處境的理解與同理，促進人與自然更平衡的共存關係。</p>
+
+            <h3>1. 第三屆為野生動物而走倡議行動</h3>
+            <p>本次勸募計畫旨在籌辦「第三屆為野生動物而走」倡議行動，透過遊行、講座、市集與展覽等多元形式，推動「不餵食、不棄養不放養、TNSA」三大訴求：</p>
+            <ul>
+                <li><strong>不餵食</strong>——倡議政府與民眾共同落實禁止不當餵食行為，避免善意成為破壞生態的行為；</li>
+                <li><strong>不棄養不放養</strong>——強化飼主責任教育與寵物管理制度，防止動物流浪化；</li>
+                <li><strong>TNSA取代TNR</strong>——推動取代TNR的有效管理策略，讓犬貓回歸人類照護系統。</li>
+            </ul>
+            <p>聯盟希望藉此計畫凝聚公民行動力量，促使政策改革與教育推廣並行，建立人與野生動物真正能和平共存的社會環境，讓「愛」不再是干擾，而是理解與尊重的實踐。</p>
+
+            <h3>2. 全台巡迴教育課程計畫</h3>
+            <p>本團隊結合環境教育、動物保護與閱讀推廣三方專業，設計具系統性與延展性的課程模組，讓動物保護與生態保育議題自然融入校園生命教育之中。課程依據「十二年國教課綱核心素養」及「環境素養與媒體識讀」能力指標設計，呼應SDGs第4（優質教育）、第15（陸域生態）、第17（夥伴關係）目標，並強調學生在生態知識判讀、資料整合與媒體分析上的跨域應用能力。本課程將以永續教育目標，期望培養學生在未來時有能力回應當代的生態環境問題。</p>
+        </div>
+
+        <div class="event-title">
+            <h2>勸募活動專戶</h2>
+        </div>
+
+        <div class="event-fundactivity">
+            <h3>匯款轉帳:</h3>
+            <p><strong>郵局名稱：</strong>文山萬盛郵局(局號 000197-2)<br>
+            <strong>戶名：</strong>社團法人為野生動物而走行動聯盟<br>
+            <strong>帳號：</strong>00019720115168</p>
         </div>
 
         <footer>
