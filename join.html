@@ -112,17 +112,91 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #4a7c59;
         }
-        .construction-box {
-            text-align: center;
-            padding: 60px 20px;
-            background: #fff8e6;
-            border: 2px dashed #d4a843;
+        .intro-section {
+            background: #f0f7f1;
+            padding: 30px;
             border-radius: 10px;
-            max-width: 500px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .intro-section p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        .join-form {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
             margin: 0 auto;
         }
-        .construction-icon { font-size: 4em; margin-bottom: 20px; }
-        .construction-text { color: #666; font-size: 1.2em; }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            color: #2c5530;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a7c59;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group .help-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        .checkbox-group label {
+            display: block;
+            font-weight: normal;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        .submit-btn {
+            background: #2c5530;
+            color: #fff;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background: #4a7c59;
+        }
+        .required {
+            color: #d44;
+        }
         footer {
             text-align: center;
             padding: 30px;
@@ -181,7 +255,7 @@
                         <li><a href="about.html">組織章程</a></li>
                     </ul>
                 </li>
-                <li><a href="documents.html">相關文獻</a></li>
+                <!-- <li><a href="documents.html">相關文獻</a></li> -->
                 <li><a href="join.html" class="active">加入我們</a></li>
                 <li class="dropdown">
                     <a href="#">捐款支持</a>
@@ -196,10 +270,47 @@
 
     <div class="page-content">
         <h1 class="page-title">加入我們</h1>
-        <div class="construction-box">
-            <div class="construction-icon">🚧</div>
-            <p class="construction-text">頁面建置中，敬請期待</p>
+
+        <div class="intro-section">
+            <p>感謝您對野生動物保育的關注與支持！</p>
+            <p>無論您想成為志工、合作夥伴，或是單純想了解更多資訊，都歡迎與我們聯繫。</p>
         </div>
+
+        <form class="join-form" id="joinForm">
+            <div class="form-group">
+                <label for="name">姓名 <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">電子郵件 <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">電話</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label>我想參與的方式：</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="volunteer" value="志工服務"> 志工服務</label>
+                    <label><input type="checkbox" name="event" value="活動參與"> 活動參與</label>
+                    <label><input type="checkbox" name="donation" value="捐款支持"> 捐款支持</label>
+                    <label><input type="checkbox" name="partnership" value="合作提案"> 合作提案</label>
+                    <label><input type="checkbox" name="other" value="其他"> 其他</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">留言 <span class="required">*</span></label>
+                <textarea id="message" name="message" required placeholder="請告訴我們您的想法或需求..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">送出</button>
+        </form>
+
         <footer>
             <div class="social-links">
                 <a href="https://www.facebook.com/TaiwanWalkForWildlife" target="_blank" aria-label="Facebook">
@@ -226,6 +337,40 @@
                     this.parentElement.classList.toggle('open');
                 }
             });
+        });
+
+        // Handle form submission
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Collect checkboxes
+            const interests = [];
+            document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked').forEach(function(checkbox) {
+                interests.push(checkbox.value);
+            });
+
+            // Build email body
+            let emailBody = `姓名：${name}\n`;
+            emailBody += `電子郵件：${email}\n`;
+            if (phone) emailBody += `電話：${phone}\n`;
+            if (interests.length > 0) {
+                emailBody += `\n參與方式：\n${interests.join('\n')}\n`;
+            }
+            emailBody += `\n留言：\n${message}`;
+
+            // Create mailto link
+            const subject = encodeURIComponent('【加入我們】' + name);
+            const body = encodeURIComponent(emailBody);
+            const mailtoLink = `mailto:taiwanwalkforwildlife@gmail.com?subject=${subject}&body=${body}`;
+
+            // Open email client
+            window.location.href = mailtoLink;
         });
     </script>
 </body>
