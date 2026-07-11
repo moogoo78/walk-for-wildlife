@@ -495,6 +495,144 @@
             color: #fff;
         }
 
+        /* ── DONATION DISCLOSURE (捐款徵信) ── */
+        .disclosure-section {
+            background: #f8faf8;
+            padding: 60px 20px 70px;
+            border-top: 1px solid #e0eee2;
+        }
+        .disclosure-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .disclosure-inner h2 {
+            color: #2c5530;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #c8e6ce;
+        }
+        .disclosure-note {
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 26px;
+            line-height: 1.9;
+        }
+        /* archive card list */
+        .disclosure-archive {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .disclosure-card {
+            background: #fff;
+            border: 1px solid #ddeee0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.25s, border-color 0.25s;
+        }
+        .disclosure-card:hover { box-shadow: 0 4px 16px rgba(44,85,48,0.08); }
+        .disclosure-card.open { border-color: #c8e6ce; }
+        .disclosure-card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font: inherit;
+        }
+        .disclosure-card-head .period {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #2c5530;
+        }
+        .disclosure-card-head .meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #888;
+            font-size: 0.85em;
+        }
+        .disclosure-card-head .chevron {
+            transition: transform 0.25s;
+            color: #4a7c59;
+            font-size: 0.8em;
+        }
+        .disclosure-card.open .disclosure-card-head .chevron { transform: rotate(180deg); }
+        .disclosure-card-body {
+            display: none;
+            padding: 4px 24px 26px;
+            border-top: 1px solid #eef4ef;
+        }
+        .disclosure-card.open .disclosure-card-body { display: block; }
+        @media (max-width: 620px) {
+            .disclosure-card-head { padding: 16px 18px; flex-wrap: wrap; }
+            .disclosure-card-head .meta .count { display: none; }
+            .disclosure-card-body { padding: 4px 18px 22px; }
+        }
+        .disclosure-summary {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .disclosure-summary .stat {
+            flex: 1;
+            min-width: 150px;
+            background: #fff;
+            border: 1px solid #ddeee0;
+            border-radius: 10px;
+            padding: 18px 22px;
+            text-align: center;
+        }
+        .disclosure-summary .stat .num {
+            font-size: 1.7em;
+            font-weight: 700;
+            color: #2c5530;
+            line-height: 1.1;
+        }
+        .disclosure-summary .stat .cap {
+            font-size: 0.82em;
+            color: #888;
+            margin-top: 6px;
+        }
+        .donor-list {
+            column-count: 3;
+            column-gap: 32px;
+        }
+        @media (max-width: 1024px) { .donor-list { column-count: 2; } }
+        @media (max-width: 620px)  { .donor-list { column-count: 1; } }
+        .donor-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            padding: 9px 2px;
+            border-bottom: 1px dashed #dcece0;
+            break-inside: avoid;
+        }
+        .donor-row .name {
+            color: #3a3a3a;
+            font-size: 0.92em;
+        }
+        .donor-row .amt {
+            color: #2c5530;
+            font-weight: 600;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .disclosure-foot {
+            margin-top: 26px;
+            font-size: 0.82em;
+            color: #999;
+            line-height: 1.9;
+        }
+
         /* ── FOOTER ── */
         footer {
             text-align: center;
@@ -543,7 +681,12 @@
                     </ul>
                 </li>
                 <li><a href="join.html">加入我們</a></li>
-                <li><a href="donate.html" class="active">捐款支持</a></li>
+                <li class="dropdown">
+                    <a href="donate.html" class="active">捐款支持</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="donate.html#disclosure">捐款徵信</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
@@ -658,7 +801,7 @@
             <div class="trust-badges">
                 <span class="trust-badge"><span class="dot"></span>衛福部許可勸募</span>
                 <span class="trust-badge"><span class="dot"></span>捐款可開立收據</span>
-                <span class="trust-badge"><span class="dot"></span>資訊公開透明</span>
+                <a class="trust-badge" href="#disclosure" style="text-decoration:none;"><span class="dot"></span>資訊公開透明</a>
             </div>
         </div>
     </div>
@@ -687,6 +830,114 @@
             </div>
             <div class="permit-link">
                 <a href="https://sasw.mohw.gov.tw/app39/fundactivity/fundactivityDetails/18798606" target="_blank">🔗 查看公益勸募管理系統登載資訊</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATION DISCLOSURE (捐款徵信) -->
+    <section class="disclosure-section" id="disclosure">
+        <div class="disclosure-inner">
+            <h2>捐款徵信</h2>
+            <p class="disclosure-note">
+                感謝每一位支持野生動物的您。以下依徵信期間列示本會捐款明細（衛部救字第1151360036號）。
+                為尊重捐款人意願並保護個人資料，部分姓名以善心人士或去識別化方式呈現。
+            </p>
+
+            <div class="disclosure-archive">
+                <div class="disclosure-card">
+                    <button type="button" class="disclosure-card-head" aria-expanded="false">
+                        <span class="period">2026 年 1–6 月</span>
+                        <span class="meta">
+                            <span class="count">58 筆・NT$ 73,409</span>
+                            <span class="chevron">▼</span>
+                        </span>
+                    </button>
+                    <div class="disclosure-card-body">
+
+            <div class="disclosure-summary">
+                <div class="stat">
+                    <div class="num">NT$ 73,409</div>
+                    <div class="cap">上半年捐款總額</div>
+                </div>
+                <div class="stat">
+                    <div class="num">58</div>
+                    <div class="cap">捐款筆數</div>
+                </div>
+                <div class="stat">
+                    <div class="num">2026 / 1–6</div>
+                    <div class="cap">徵信期間</div>
+                </div>
+            </div>
+
+            <div class="donor-list">
+                <div class="donor-row"><span class="name">崔*奕</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">游*儒</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">秀田灶豐小吃</span><span class="amt">$3,000</span></div>
+                <div class="donor-row"><span class="name">陳*丞</span><span class="amt">$200</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$200</span></div>
+                <div class="donor-row"><span class="name">木曜日製物所</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">張*承</span><span class="amt">$600</span></div>
+                <div class="donor-row"><span class="name">洪卉稘</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">蔡*伃</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">GJ</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">HsuYu</span><span class="amt">$550</span></div>
+                <div class="donor-row"><span class="name">王O瑄</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">俞O倫</span><span class="amt">$200</span></div>
+                <div class="donor-row"><span class="name">廖朝盛</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">蔡思怡</span><span class="amt">$100</span></div>
+                <div class="donor-row"><span class="name">善心人士—動行捐款箱</span><span class="amt">$27,073</span></div>
+                <div class="donor-row"><span class="name">善心人士—水手兩棲爬蟲：台中南屯店</span><span class="amt">$800</span></div>
+                <div class="donor-row"><span class="name">善心人士—金車礁溪蘭花園附設動植物生態館</span><span class="amt">$386</span></div>
+                <div class="donor-row"><span class="name">善心人士—生科展捐款箱</span><span class="amt">$1,700</span></div>
+                <div class="donor-row"><span class="name">游*儒</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">楊宗翰</span><span class="amt">$100</span></div>
+                <div class="donor-row"><span class="name">陳*丞</span><span class="amt">$200</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$200</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">張*承</span><span class="amt">$600</span></div>
+                <div class="donor-row"><span class="name">潘*辰</span><span class="amt">$3,000</span></div>
+                <div class="donor-row"><span class="name">GJ</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">余*瑄</span><span class="amt">$500</span></div>
+                <div class="donor-row"><span class="name">瑋瑋老師的撒野記事錄</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">洪*晴</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">Philia Cheng</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">游*儒</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">阿白</span><span class="amt">$500</span></div>
+                <div class="donor-row"><span class="name">黃崇鑫</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">善心人士—半畝屋</span><span class="amt">$500</span></div>
+                <div class="donor-row"><span class="name">善心人士—unpackaged. U 商店</span><span class="amt">$88</span></div>
+                <div class="donor-row"><span class="name">善心人士—半畝屋</span><span class="amt">$760</span></div>
+                <div class="donor-row"><span class="name">許*</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">蔡文元</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">林子揚</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">張家蓁</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">陳*丞</span><span class="amt">$200</span></div>
+                <div class="donor-row"><span class="name">孫允毅</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">蔡*慧</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">吳宜叡</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$200</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">善心人士</span><span class="amt">$1,000</span></div>
+                <div class="donor-row"><span class="name">詹*凡</span><span class="amt">$2,000</span></div>
+                <div class="donor-row"><span class="name">游*儒</span><span class="amt">$300</span></div>
+                <div class="donor-row"><span class="name">陳*妤</span><span class="amt">$500</span></div>
+                <div class="donor-row"><span class="name">善心人士—金車礁溪蘭花園附設動植物生態館</span><span class="amt">$15</span></div>
+                <div class="donor-row"><span class="name">善心人士—琉籤Freediving</span><span class="amt">$842</span></div>
+                <div class="donor-row"><span class="name">善心人士—琉籤Freediving</span><span class="amt">$195</span></div>
+            </div>
+
+            <div class="disclosure-foot">
+                ※ 本徵信明細依《公益勸募條例》辦理，僅列示 2026 年 1 月至 6 月之捐款紀錄。<br>
+                ※ 如捐款資料有誤或欲更正徵信方式，歡迎來信
+                <a href="mailto:taiwanwalkforwildlife@gmail.com" style="color:#4a7c59;text-decoration:none;">taiwanwalkforwildlife@gmail.com</a> 與我們聯繫。
+            </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -744,6 +995,13 @@
             document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         }
+        document.querySelectorAll('.disclosure-card-head').forEach(function(head) {
+            head.addEventListener('click', function() {
+                var card = this.parentElement;
+                var open = card.classList.toggle('open');
+                this.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+        });
     </script>
 </body>
 </html>
