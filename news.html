@@ -339,6 +339,9 @@
             }
             listEl.innerHTML = filtered.map(n => {
                 const title = n.title.startsWith('http') ? n.source : n.title;
+                const link = (n.url && n.url.startsWith('http'))
+                    ? `<a href="${n.url}" target="_blank" class="news-link">查看連結</a>`
+                    : '';
                 return `<div class="news-item">
                     <span class="news-date">${n.date}</span>
                     <div class="news-content">
@@ -346,7 +349,7 @@
                         <div class="news-meta">
                             <span class="news-source">${n.source}</span>
                             <span class="news-topic">${n.topic}</span>
-                            <a href="${n.url}" target="_blank" class="news-link">查看連結</a>
+                            ${link}
                         </div>
                     </div>
                 </div>`;
