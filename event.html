@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 第三屆為野生動物而走遊行 - 為野生動物而走聯盟</title>
+    <meta name="description" content="2026/09/19（六）第三屆為野生動物而走遊行，於台北市立法院群賢樓旁舉行。攤位、舞台、遊行與八位講者短講接力，一起為野生動物發聲。">
+    <meta name="keywords" content="為野生動物而走,Walk for Wildlife,遊行,野生動物保育,遊蕩犬,短講,立法院">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://walkforwildlife.org.tw/event.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="為野生動物而走聯盟">
+    <meta property="og:title" content="2026 第三屆為野生動物而走遊行">
+    <meta property="og:description" content="2026/09/19（六）11:00-17:30，台北市立法院群賢樓旁。攤位、舞台、遊行與八位講者短講接力。">
+    <meta property="og:url" content="https://walkforwildlife.org.tw/event.html">
+    <meta property="og:image" content="https://walkforwildlife.org.tw/images/parade-2026/talk-2.jpg">
+    <meta property="og:locale" content="zh_TW">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="2026 第三屆為野生動物而走遊行">
+    <meta name="twitter:description" content="2026/09/19（六）11:00-17:30，台北市立法院群賢樓旁。攤位、舞台、遊行與八位講者短講接力。">
+    <meta name="twitter:image" content="https://walkforwildlife.org.tw/images/parade-2026/talk-2.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .navbar {
+            background: #2c5530;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-logo {
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 0;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background 0.3s;
+        }
+        .nav-menu a:hover, .nav-menu a.active { background: #4a7c59; }
+        .nav-menu .dropdown { position: relative; }
+        .nav-menu .dropdown > a::after { content: ' ▾'; font-size: 0.8em; }
+        .nav-menu .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #2c5530;
+            min-width: 150px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .nav-menu .dropdown:hover .dropdown-menu { display: block; }
+        .nav-menu .dropdown-menu a { padding: 12px 20px; border-top: 1px solid #4a7c59; }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #2c5530;
+                flex-direction: column;
+                gap: 0;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu a {
+                padding: 15px 20px;
+                border-top: 1px solid #4a7c59;
+            }
+            .nav-container { position: relative; }
+            .nav-menu .dropdown-menu { position: static; box-shadow: none; min-width: auto; }
+            .nav-menu .dropdown-menu a { padding-left: 40px; }
+            .nav-menu .dropdown.open .dropdown-menu { display: block; }
+        }
+
+        /* Hero */
+        .hero {
+            background: #8a9a4e;
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 55%, #8a9a4e 100%);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px 50px;
+        }
+        .hero-edition {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 999px;
+            padding: 2px 16px;
+            font-size: 0.9em;
+            letter-spacing: 0.1em;
+            margin-bottom: 14px;
+        }
+        .hero h1 {
+            font-size: 2.4em;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+        .hero-sub {
+            font-size: 1.1em;
+            opacity: 0.9;
+            letter-spacing: 0.05em;
+        }
+        .hero-status {
+            display: inline-block;
+            margin-top: 20px;
+            background: #f0ead2;
+            color: #2c5530;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 6px 18px;
+        }
+        .hero-status:empty { display: none; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+        }
+        h2 {
+            color: #2c5530;
+            font-size: 1.5em;
+            margin: 10px 0 20px;
+            padding-left: 10px;
+            border-left: 4px solid #4a7c59;
+        }
+        section { margin-bottom: 50px; }
+
+        /* Info cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .info-card {
+            background: #f8faf8;
+            border: 1px solid #e0eae0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .info-card .label {
+            color: #4a7c59;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .info-card .value {
+            font-size: 1.2em;
+            color: #2c5530;
+            font-weight: bold;
+        }
+        .info-card a {
+            color: #4a7c59;
+            font-size: 0.9em;
+        }
+
+        /* Schedule */
+        .timeline { list-style: none; position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #cfdccf;
+        }
+        .timeline li { position: relative; padding: 8px 0; display: flex; gap: 20px; }
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 17px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4a7c59;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #4a7c59;
+        }
+        .timeline .time {
+            font-weight: bold;
+            color: #2c5530;
+            min-width: 60px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Speakers */
+        .intro {
+            margin-bottom: 24px;
+            color: #555;
+        }
+        .speaker {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 28px;
+            padding: 28px 0;
+            border-top: 1px solid #e5e5e5;
+        }
+        .speaker:first-of-type { border-top: none; }
+        .speaker-photo img, .speaker-photo .placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+        .speaker-photo .placeholder {
+            background: #8a9a4e;
+            color: #f0ead2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .speaker-photo .placeholder span { font-size: 3.5em; line-height: 1.2; }
+        .relay-no {
+            display: inline-block;
+            background: #2c5530;
+            color: #fff;
+            font-size: 0.85em;
+            border-radius: 4px;
+            padding: 0 10px;
+            margin-bottom: 6px;
+        }
+        .speaker h3 {
+            color: #2c5530;
+            font-size: 1.4em;
+            line-height: 1.4;
+        }
+        .speaker .role {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        .speaker .talk-topic {
+            background: #f0ead2;
+            border-left: 4px solid #8a9a4e;
+            padding: 8px 14px;
+            margin: 10px 0 12px;
+            border-radius: 0 6px 6px 0;
+        }
+        .speaker p { margin-bottom: 10px; }
+        .speaker ul { margin: 0 0 10px 20px; }
+        .speaker h4 { color: #4a7c59; margin: 14px 0 4px; }
+        .speaker details summary {
+            cursor: pointer;
+            color: #4a7c59;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .tag {
+            background: #e8f0e8;
+            color: #2c5530;
+            font-size: 0.85em;
+            border-radius: 999px;
+            padding: 1px 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+        .social-links { margin-bottom: 15px; }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #2c5530;
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .social-links a:hover { background: #4a7c59; }
+        .social-links svg { width: 20px; height: 20px; fill: #fff; }
+        .footer-contact {
+            margin: 20px 0;
+            line-height: 2;
+        }
+        .footer-contact p {
+            margin: 8px 0;
+            color: #666;
+        }
+        .footer-contact a {
+            color: #2c5530;
+            text-decoration: none;
+        }
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 40px 16px 36px; }
+            .hero h1 { font-size: 1.7em; }
+            .container { padding: 24px 16px; }
+            .speaker { grid-template-columns: 1fr; gap: 16px; }
+            .speaker-photo { max-width: 360px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">為野生動物而走 行動聯盟</a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="event.html" class="active">2026 遊行</a></li>
+                <li><a href="news.html">訊息專區</a></li>
+                <li class="dropdown">
+                    <a href="#">關於我們</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="member.html">組織架構</a></li>
+                        <li><a href="about.html">組織章程</a></li>
+                    </ul>
+                </li>
+                <!-- <li><a href="documents.html">相關文獻</a></li> -->
+                <li><a href="join.html">加入我們</a></li>
+                <li class="dropdown">
+                    <a href="#">捐款支持</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="donate.html">捐款支持</a></li>
+                        <li><a href="donate.html#disclosure">捐款徵信</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-edition">第三屆</div>
+        <h1>為野生動物而走遊行</h1>
+        <p class="hero-sub">🐾 2026 Walk for Wildlife 🌿</p>
+        <div class="hero-status" id="event-status"></div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>活動資訊</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="label">📅 時間</div>
+                    <div class="value">2026 / 09 / 19（六）</div>
+                    <div>11:00 – 17:30</div>
+                </div>
+                <div class="info-card">
+                    <div class="label">📍 地點</div>
+                    <div class="value">台北市立法院群賢樓旁</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=%E7%AB%8B%E6%B3%95%E9%99%A2%E7%BE%A4%E8%B3%A2%E6%A8%93" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>活動流程</h2>
+            <ul class="timeline">
+                <li><span class="time">11:00</span><span>攤位區開放</span></li>
+                <li><span class="time">13:00</span><span>舞台正式開幕</span></li>
+                <li><span class="time">13:30</span><span>遊行隊伍整隊</span></li>
+                <li><span class="time">14:00</span><span>遊行正式出發</span></li>
+                <li><span class="time">15:00</span><span>短講開始</span></li>
+                <li><span class="time">17:30</span><span>活動結束</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>短講接力</h2>
+            <p class="intro">八位來自研究、救傷、教育、動保與媒體領域的講者，從石虎、穿山甲、小燕鷗、海龜到犬貓議題，分享他們在第一線看見的野生動物處境。</p>
+
+            <article class="speaker">
+                <div class="speaker-photo"><img src="images/parade-2026/talk-1.jpg" alt="陳美汀" loading="lazy"></div>
+                <div>
+                    <span class="relay-no">第一棒</span>
+                    <h3>陳美汀</h3>
+                    <p class="role">台灣石虎保育協會秘書長</p>
+                    <p>陳美汀秘書長從事石虎研究和保育工作多年，即使需要面對各種壓力和負面情緒，只要能從自動相機拍到石虎影像或無線電追蹤聽到牠們活動的訊號，總能轉化負面情緒。然而，個人的保育能量有限，透過大家的合作協力，能讓環境監督、棲地保護、教育推廣或研究調查種種保育行動的效果擴展和深化，這需要凝聚眾人的熱情、建立共同信念並一起行動。</p>
+                    <p>創立台灣石虎保育協會和推動石虎保育工作多年，深刻感受到民眾的熱情與力量，讓我們再一次參與為野生動物發聲、宣示和凝聚力量的行動。讓我們一起為野生動物而走！</p>
+                    <div class="tags"><span class="tag">#友善農作</span><span class="tag">#棲地保育</span><span class="tag">#野生動物困境</span></div>
+                </div>
+            </article>
+
+            <article class="speaker">
+                <div class="speaker-photo"><img src="images/parade-2026/talk-2.jpg" alt="綦孟柔" loading="lazy"></div>
+                <div>
+                    <span class="relay-no">第二棒</span>
+                    <h3>綦孟柔</h3>
+                    <p class="role">社團法人臺灣野灣野生動物保育協會 創辦人／秘書長・獸醫師</p>
+                    <p>綦孟柔獸醫師從喜歡動物，到真正走進野生動物救傷現場，一路陪伴許多傷病野生動物走過最脆弱的時刻。畢業的幾年後，面對東部救傷資源不足，她選擇留下來，投入野生動物醫療與保育工作，並共同創立野灣野生動物保育協會。每一次救援，不只是挽救一條生命，也讓更多人看見，人與野生動物其實共享著同一片土地。</p>
+                    <p>目前主要的業務重點在於協會的營運管理，希望藉由野生動物救傷的案例，帶出此刻野生動物所面臨到的問題，進而想出能夠落地的解方。</p>
+                    <details>
+                        <summary>學經歷與小故事</summary>
+                        <h4>學歷</h4>
+                        <p>國立屏東科技大學 獸醫學系</p>
+                        <h4>經歷</h4>
+                        <ul>
+                            <li>社團法人臺灣野灣野生動物保育協會 創辦人／時任理事長／現任秘書長</li>
+                            <li>谷米動物醫院 院長</li>
+                            <li>屏科大保育類野生動物收容中心 獸醫師</li>
+                            <li>六福村野生動物園 獸醫師</li>
+                        </ul>
+                        <h4>短期相關經歷</h4>
+                        <ul>
+                            <li>越南 EAST 靈長類救援中心 合作獸醫師</li>
+                            <li>台灣特殊寵物暨野生動物醫學會 第三屆理事</li>
+                            <li>社團法人台灣野生動物救傷與保育學會 理事</li>
+                            <li>明尼蘇達野生動物救傷中心 WRC 短期交流</li>
+                            <li>尼泊爾動物醫療中心 志願獸醫師</li>
+                        </ul>
+                        <h4>醫師與野生動物的小故事</h4>
+                        <p>記得有一次在診間遇到撿到小松鼠來詢問怎麼飼養的飼主，透過各種道德勸說、野生動物照養不易等等，終於打動飼主願意送往救傷單位，並且聽到飼主說讓他能夠自由地回到野外對他才是最好的，在心中響起小小的歡呼～</p>
+                    </details>
+                    <div class="tags"><span class="tag">#野生動物困境</span><span class="tag">#救傷現狀</span></div>
+                </div>
+            </article>
+
+            <article class="speaker">
+                <div class="speaker-photo"><img src="images/parade-2026/talk-3.jpg" alt="劉仲景" loading="lazy"></div>
+                <div>
+                    <span class="relay-no">第三棒</span>
+                    <h3>劉仲景</h3>
+                    <p class="role">國立屏東科技大學 野生動物保育研究所 食蟻動物研究室 研究助理</p>
+                    <p>一個小小的發報器訊號，背後可能是一隻穿山甲正在野外努力活下去。劉仲景長期投入穿山甲追蹤與保育研究，工作包含穿山甲食性物種分析、自動相機架設與無線電追蹤。循著一筆筆移動軌跡，他不只記錄牠們去了哪裡，也看見遊蕩犬等威脅如何悄悄影響牠們的生存，讓原本藏在山林裡的危機被更多人看見。</p>
+                    <details>
+                        <summary>研究時發生的故事</summary>
+                        <p>今年 4 月～6 月，在馬頭山發現了花生、阿喬，同時也異地野放了米酒這三隻小穿山甲；然而花生跟阿喬因為流浪狗而死，米酒則因為網具纏繞也死了。雖然當然不是什麼好事，要說覺得不可惜也是騙人的，但是能夠看到他們的故事被更多人知道，也有不少人願意正視並理性思考這個十年來難解的議題，就會覺得他們不是白白犧牲。只要有更多人願意在意這個議題，對研究者們來說就是最好的鼓舞。</p>
+                        <p>雖然常常要為了追蹤，在山裡待到半夜凌晨，也時常為了收集自動相機的影像資料而在密林中砍草開路、曬太陽淋雨、被蚊子叮到滿頭包。確實是蠻辛苦的，但是在過程中，到達了平常只有野生動物在活動的森林裡，看到他們的腳印、排遺，以及地貌隨時間的改變，再到收到影像，看到動物們各種有趣的活動行為，或是看到我們追蹤的穿山甲也自由的生活著，就會覺得一切都是值得、有趣而且讓人開心。</p>
+                    </details>
+                    <div class="tags"><span class="tag">#野生動物困境</span><span class="tag">#犬貓</span></div>
+                </div>
+            </article>
+
+            <article class="speaker">
+                <div class="speaker-photo"><img src="images/parade-2026/talk-4.jpg" alt="張瀚柏" loading="lazy"></div>
+                <div>
+                    <span class="relay-no">第四棒</span>
+                    <h3>張瀚柏</h3>
+                    <p class="role">國立臺灣大學 森林環境暨資源學系 博士生</p>
+                    <p>張瀚柏從大學起長期參與鳥類研究與調查工作，因協助執行離岸風場海上鳥類調查，近年尤其關心海鳥在台灣的族群狀態，以台灣小燕鷗保育生物學為研究主題。</p>
+                    <p class="talk-topic">🎤 受到遊蕩犬和人類活動侵擾的小燕鷗，究竟需要面對什麼樣的威脅？我們又能怎麼辦？</p>
+                    <p>瀚柏想對大家說的話：「水域環境是遊憩的好地方，也是海鳥孕育下一代的重要環境。多一份理解與小心，就能為小燕鷗留下一片安心繁衍的土地。」</p>
+                    <div class="tags"><span class="tag">#犬貓</span><span class="tag">#棲地保育</span><span class="tag">#野生動物困境</span></div>
+                </div>
+            </article>
+
+            <article class="speaker">
+                <div class="speaker-photo"><div class="placeholder" role="img" aria-label="海龜姊姊（馮加伶）"><span>🐢</span>海龜姊姊</div></div>
+                <div>
+                    <span class="relay-no">第五棒</span>
+                    <h3>海龜姊姊（馮加伶）</h3>
+                    <p class="role">國立臺灣師範大學與中央研究院生物多樣性學程 博士</p>
+                    <p>自大學時期在蘭嶼擔任產卵海龜巡護志工之後，便一直在海龜研究與海洋保育領域投入心力，至今超過十五年。2017 年，她與夥伴共同發起公民科學計畫「海龜點點名」（TurtleSpot Taiwan），運用海龜臉部獨特鱗片的 Photo-ID 辨識方法，邀請潛水員與民眾一起記錄海龜影像，建立「海龜戶口名簿」。除了研究，亦長期投入科普講座與保育倡議，希望能讓更多人認識海龜和海洋。</p>
+                    <p class="talk-topic">🎤 流浪狗與海龜的關係——平時在海裡生活的海龜，其實也面臨到遊蕩犬種種的問題。</p>
+                    <div class="tags"><span class="tag">#野生動物困境</span><span class="tag">#犬貓</span></div>
+                </div>
+            </article>
+
+            <article class="speaker">
+                <div class="speaker-photo"><img src="images/parade-2026/talk-6.jpg" alt="陳人祥" loading="lazy"></div>
+                <div>
+                    <span class="relay-no">第六棒</span>
+                    <h3>陳人祥（燒賣）</h3>
+                    <p class="role">拼圖喵生命平權推廣協會 創辦人</p>
+                    <p>66 年次的六年級生，人稱「燒賣」，背景是資訊管理，當了 10 餘年的工程師。在日常業務中反思自己的人生應該從事更有歸屬感的事情，在 30 多歲時辭去遊戲工程師的穩定工作，創辦了「拼圖喵中途之家」（社團法人拼圖喵生命平權推廣協會），以及「養貓人家」社會企業，自 2014 年開始致力將民眾刻板印象裡髒亂的中途之家，打造成一個人貓共好的「生命教育機構」。</p>
+                    <p>經營過貓旅館、考過寵物美容師證照，還曾誤入私人繁殖場工作，這些經歷給他的回饋，讓他對推廣動物權益和生命平權的公共議題有更全面的想法，並持續為之努力。</p>
+                    <p class="talk-topic">🎤 TNSA 是什麼？跟 TNR 又有什麼差別？</p>
+                    <details>
+                        <summary>關於拼圖喵中途之家・野生動物小趣事</summary>
+                        <h4>拼圖喵中途之家</h4>
+                        <p>一間普通又不普通的貓中途，一間幫貓又不只幫貓的生命平權推廣機構，一個想要讓貓與人都能好好向彼此學習，陪伴彼此生活的地方。我們歡迎所有大小朋友，一起來交貓朋友。</p>
+                        <p>我們希望讓所有在拼圖喵中途的貓咪們，只要認真的做他們自己，就能開開心心的享受自在的貓生，找到有緣一起完成人生冒險的家人。我們努力創造一個人貓共好的環境，成為彼此生命缺憾的拼圖。我們也用照顧大量街貓的經驗，致力開發對貓咪最合適的食物和用品，期許經營一間可以自給自足的街貓中途之家，更有系統的改善流浪動物問題。</p>
+                        <h4>跟野生動物相關的小趣事</h4>
+                        <p>有一次看到家裡的貓半趴在地上不知道嘴裡叼著什麼，衝過去一看，發現貓貓嘴裡叼著一隻小壁虎！急忙讓貓貓把壁虎給吐出來，萬幸的是壁虎似乎還沒有受傷、看上去完整也還能行動，就一邊擋著不讓貓貓再靠近一邊護送壁虎離開。就這樣地球又平安度過了一天。</p>
+                    </details>
+                    <div class="tags"><span class="tag">#犬貓</span></div>
+                </div>
+            </article>
+
+            <article class="speaker">
+                <div class="speaker-photo"><img src="images/parade-2026/talk-7.jpg" alt="黃一峯" loading="lazy"></div>
+                <div>
+                    <span class="relay-no">第七棒</span>
+                    <h3>黃一峯</h3>
+                    <p class="role">科普作家・生態教育工作者</p>
+                    <p>榮獲四座金鼎獎、兩屆吳大猷獎之科普作家、生態教育工作者。成長於繁華都市，卻擁有一雙善於發現自然野趣的眼睛。集寫作、繪畫、攝影、藝術設計、空間視覺設計等多重創作人身分於一身，專注於將自然素材做為創作元素，以美學視角將所見的自然生態之美轉化成活潑多元自然創作、書籍等作品。</p>
+                    <p>近年致力以淺顯有趣的入門課程，用說故事的方法，引導更多人走向自然、保護自然。著有《自然野趣DIY》、《婆羅洲雨林野瘋狂》、《自然觀察達人養成術》、《自然怪咖生活週記》、《鳥類不簡單》、《怪咖動物偵探》系列等。作品深受好評，迭獲金鼎獎、台北國際書展首獎、吳大猷科學普及獎、Openbook 年度好書獎等各獎項肯定。</p>
+                    <p class="talk-topic">🎤 迷失的生態教育——生態教育發生了什麼事？大家對生態教育的認識都是在同一條線嗎？</p>
+                    <div class="tags"><span class="tag">#生態教育</span></div>
+                </div>
+            </article>
+
+            <article class="speaker">
+                <div class="speaker-photo"><img src="images/parade-2026/talk-8.jpg" alt="蔡沛芸" loading="lazy"></div>
+                <div>
+                    <span class="relay-no">第八棒</span>
+                    <h3>蔡沛芸</h3>
+                    <p class="role">第四屆環保青年領袖・政大傳播碩士生</p>
+                    <p>世新新聞系畢業，現就讀政大傳播碩士。曾在公視《我們的島》、中央社、東森新聞實習，長期關注生態議題，透過新聞專題將野生動物困境帶入公共討論。</p>
+                    <p>曾獨立製作《龜途無期》（探討原生斑龜棲地危機與路殺問題）、《網錮鳥命》（揭露草莓園鳥網對野鳥的威脅）及《善良的考驗》（剖析錯誤愛心與野鳥救援困境）等野生動物新聞專題。</p>
+                    <details>
+                        <summary>關於沛芸的二三事</summary>
+                        <h4>家有特殊寵物</h4>
+                        <p>小時候就接觸父親養的蠍子、毛蜘蛛與鱷龜，當其他小孩尖叫逃跑時，她早已學會靜靜觀察，養成「先理解、不排斥」的特質。</p>
+                        <h4>報導不打碼的堅持</h4>
+                        <p>製作專題時堅持不給動物死亡畫面打碼，常被朋友笑問「怎麼都在拍屍體？」。她認為唯有呈現最真實的震撼，才能直觀地喚起大眾的保育意識。</p>
+                    </details>
+                    <p>沛芸作為青年領袖，跟我們聯盟其實有非常相似之處，都希望透過青年的力量來推動一些改變，希望環境可以變得越來越好！</p>
+                    <div class="tags"><span class="tag">#生態教育</span><span class="tag">#青年領袖</span></div>
+                </div>
+            </article>
+        </section>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.facebook.com/TaiwanWalkForWildlife" target="_blank" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
+            <div class="footer-contact">
+                <p>📞 <a href="tel:0918832539">0918-832539</a></p>
+                <p>✉️ <a href="mailto:taiwanwalkforwildlife@gmail.com">taiwanwalkforwildlife@gmail.com</a></p>
+                <p>📍 臺北市文山區汀州路4段88號理學院大樓C202室</p>
+            </div>
+            <p>為野生動物而走聯盟 &copy; 2026 Taiwan Wildlife Parade</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        document.querySelectorAll('.dropdown > a').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('open');
+                }
+            });
+        });
+
+        // Event status badge (times in Taiwan, UTC+8)
+        (function() {
+            var start = new Date('2026-09-19T11:00:00+08:00');
+            var end = new Date('2026-09-19T17:30:00+08:00');
+            var now = new Date();
+            var el = document.getElementById('event-status');
+            if (now >= end) {
+                el.textContent = '活動已圓滿結束，感謝大家一起為野生動物而走！';
+            } else if (now >= start) {
+                el.textContent = '🎉 活動進行中，快來立法院群賢樓旁找我們！';
+            } else {
+                // Whole calendar days until the event, counted in Taiwan time
+                var twToday = new Date(now.getTime() + 8 * 3600000).toISOString().slice(0, 10);
+                var days = Math.round((Date.parse('2026-09-19') - Date.parse(twToday)) / 86400000);
+                el.textContent = days === 0 ? '📣 就是今天！11:00 攤位區開放'
+                    : days === 1 ? '📣 就在明天！' : '倒數 ' + days + ' 天';
+            }
+        })();
+    </script>
+</body>
+</html>
