@@ -151,6 +151,44 @@
         }
         .hero-status:empty { display: none; }
 
+        /* Section nav */
+        html { scroll-behavior: smooth; }
+        .section-nav {
+            position: sticky;
+            top: 59px; /* updated by script to the real navbar height */
+            z-index: 900;
+            background: #fff;
+            border-bottom: 1px solid #e0eae0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        .section-nav ul {
+            max-width: 1000px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 0 12px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .section-nav ul::-webkit-scrollbar { display: none; }
+        .section-nav a {
+            display: block;
+            white-space: nowrap;
+            color: #4a7c59;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-bottom: 3px solid transparent;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .section-nav a:hover { color: #2c5530; }
+        .section-nav a.current {
+            color: #2c5530;
+            font-weight: bold;
+            border-bottom-color: #4a7c59;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -164,7 +202,7 @@
             padding-left: 10px;
             border-left: 4px solid #4a7c59;
         }
-        section { margin-bottom: 50px; scroll-margin-top: 70px; }
+        section { margin-bottom: 50px; scroll-margin-top: 120px; }
 
         /* Info cards */
         .info-grid {
@@ -341,6 +379,56 @@
             padding: 2px 10px;
         }
 
+        /* Stalls */
+        .stall-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            align-items: start;
+        }
+        .stall {
+            background: #f8faf8;
+            border: 1px solid #e0eae0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .stall-head { display: flex; gap: 14px; align-items: center; }
+        .stall-logo {
+            width: 76px;
+            height: 76px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 3px solid #8a9a4e;
+            background: #fff;
+        }
+        .stall-no {
+            display: inline-block;
+            background: #8a9a4e;
+            color: #fff;
+            font-size: 0.8em;
+            border-radius: 999px;
+            min-width: 1.8em;
+            text-align: center;
+            padding: 0 6px;
+        }
+        .stall h3 {
+            color: #2c5530;
+            font-size: 1.05em;
+            line-height: 1.4;
+            margin-top: 2px;
+        }
+        .stall .tags { margin-top: 4px; }
+        .stall details { margin-top: 10px; }
+        .stall details summary {
+            cursor: pointer;
+            color: #4a7c59;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        .stall-body { margin-top: 6px; font-size: 0.95em; }
+        .stall-body p { margin-bottom: 8px; }
+        .stall-body ul { margin: 0 0 8px 20px; }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -381,11 +469,14 @@
         }
         @media (max-width: 768px) {
             .hero { padding: 40px 16px 36px; }
+            .section-nav ul { justify-content: flex-start; }
+            .section-nav a { padding: 10px 10px; }
             .hero h1 { font-size: 1.7em; }
             .container { padding: 24px 16px; }
             .speaker { grid-template-columns: 1fr; gap: 16px; }
             .speaker-photo { max-width: 360px; }
             .sign-grid { grid-template-columns: 1fr; }
+            .stall-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -428,8 +519,18 @@
         <div class="hero-status" id="event-status"></div>
     </header>
 
+    <nav class="section-nav" aria-label="頁面章節">
+        <ul>
+            <li><a href="#info">活動資訊</a></li>
+            <li><a href="#schedule">活動流程</a></li>
+            <li><a href="#signs">標語下載</a></li>
+            <li><a href="#stalls">攤位介紹</a></li>
+            <li><a href="#talks">短講接力</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <section>
+        <section id="info">
             <h2>活動資訊</h2>
             <div class="info-grid">
                 <div class="info-card">
@@ -445,7 +546,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="schedule">
             <h2>活動流程</h2>
             <ul class="timeline">
                 <li><span class="time">11:00</span><span>攤位區開放</span></li>
@@ -480,7 +581,364 @@
             </div>
         </section>
 
-        <section>
+        <section id="stalls">
+            <h2>攤位介紹</h2>
+            <p class="intro">今年的「為野生動物而走」市集集結 25 個保育團體與生態創作者，透過調查研究、救傷照養、環境教育、政策倡議與創意設計，在各自的位置上守護臺灣的生物多樣性。歡迎大朋友小朋友一起來逛逛，今年一樣有集章活動喔🎁</p>
+            <div class="stall-grid">
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-01.jpg" alt="小ｉ的早鳥樂園 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">1</span>
+                            <h3>小ｉ的早鳥樂園</h3>
+                            <div class="tags"><span class="tag">#野生動物布偶</span><span class="tag">#自然觀察紀錄</span><span class="tag">#手作</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>「小ｉ的早鳥樂園」帶來各種手作的臺灣鳥類布偶，精緻的做工完美還原鳥兒們的風采，希望能作為大家想認識臺灣鳥類的敲門磚。</p><p>可愛的雀球系列（臺灣朱雀、赤腹山雀、帝雉、冠羽畫眉、繡眼畫眉、五色鳥、烏頭翁、鵂鶹等）和 1:1 的鳩鴿系列、信天翁寶寶、黃喉貂等，讓大家可以近距離拍照互動。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-02.jpg" alt="社團法人臺灣野灣野生動物保育協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">2</span>
+                            <h3>社團法人臺灣野灣野生動物保育協會</h3>
+                            <div class="tags"><span class="tag">#台灣東部唯一的野生動物醫院</span><span class="tag">#保育教育</span><span class="tag">#在地守護</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>於 2020 年在台東池上成立「東台灣第一間非營利野生動物醫院」，至今仍是東台灣唯一，與屏東分部合計，救援超過 4,800 隻、200 種不同的物種。</p><p>透過「救傷與照養」延續生命，以「環境教育」深入民間，將「生態調查」的結果傳達給大眾；了解野生動物面臨的生存威脅，讓人與野生動物共生共享這片土地。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-03.jpg" alt="金門縣野生動物救援暨保育協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">3</span>
+                            <h3>金門縣野生動物救援暨保育協會</h3>
+                            <div class="tags"><span class="tag">#離島野生動物救傷</span><span class="tag">#救傷日記</span><span class="tag">#歐亞水獺</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>金門縣野生動物救援暨保育協會（Kinmen Wildlife Rehabilitation and Conservation Association, KWRCA）是臺灣離島唯一的野生動物救傷站，以野生動物救傷為核心宗旨，自 2015 年成立以來，至今已救援超過 3000 例野生動物；有感於野生動物傷病原因與人類活動之密切關聯，以野生動物救援案例為基礎，辦理超過百場生態保育宣導活動，提升社會大眾關注生態環境議題。</p><p>期望透過救治、復健、野放、教育之行動，達到生態保育、野生動物復育、觀念的推廣，並追求環境之永續發展。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-04.jpg" alt="社團法人台灣野生動物救傷與保育學會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">4</span>
+                            <h3>社團法人台灣野生動物救傷與保育學會</h3>
+                            <div class="tags"><span class="tag">#野生動物救傷專業化</span><span class="tag">#救傷資源整合</span><span class="tag">#保育專業倡議</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>台灣野生動物救傷與保育學會成立於 2024 年 1 月，是台灣第一個關注野生動物救傷專業職能、法規及相關議題的學會團體。希望藉由教育推廣、職業訓練、法規認證等等，來提升台灣野生動物醫療照養品質、促進野生動物福祉，達到實現健康一體及環境永續的目標。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-05.jpg" alt="黑潮海洋文教基金會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">5</span>
+                            <h3>黑潮海洋文教基金會</h3>
+                            <div class="tags"><span class="tag">#鯨豚保育</span><span class="tag">#海洋環境教育</span><span class="tag">#海洋綠洲計畫</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>花東海域擁有得天獨厚的海洋資源，是鯨豚棲息和遷徙的路徑，但人類不當或過度的活動如漁業、賞鯨和污染，卻造成鯨豚生存的壓力。對野生鯨豚而言，最大的威脅就是人類，我們期望能在來得及之前，為東海岸鯨豚留下一片海洋綠洲，期待達到人與海洋、人與鯨豚和平共存的願景。</p><p>歡迎來黑潮攤位透過互動遊戲、黑潮義賣品認識臺灣東部海域的鯨豚多樣性，及瞭解牠們會面臨的威脅！</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-06.jpg" alt="社團法人台灣蠻野心足生態協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">6</span>
+                            <h3>社團法人台灣蠻野心足生態協會</h3>
+                            <div class="tags"><span class="tag">#環境公益訴訟</span><span class="tag">#生態法律倡議</span><span class="tag">#守護環境行動</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>台灣蠻野心足生態協會長期投入野生動物與棲地保育，關注環境開發、生物多樣性及公共政策等議題，並透過研究、倡議、環境教育與環境訴訟，推動更具永續性的環境治理。</p><p>近年協會持續參與台灣白海豚保育工作，包括目擊資料蒐集、公民科學推廣、棲地議題倡議，以及與研究單位、政府、漁民和國際保育組織交流合作。協會相信，保育不只是保護單一物種，更需要從生態、社會與政策面共同思考，讓科學知識轉化為實際行動，促進人與自然更友善且長久的共存關係。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-07.jpg" alt="地球公民基金會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">7</span>
+                            <h3>地球公民基金會</h3>
+                            <div class="tags"><span class="tag">#守護山林國土</span><span class="tag">#環境污染防治</span><span class="tag">#能源轉型倡議</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>地球公民是由大眾募款成立的基金會，長期關注山林國土、花東永續、工業污染、氣候變遷與能源轉型，堅持環境與世代正義，透過調查研究、社會對話與公民行動，推動環境個案及法令政策改變。</p><p>相信每個人都能為環境付出心力，讓臺灣更接近永續，也善盡「地球公民」的責任！🌱</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-08.jpg" alt="財團法人自然保育與環境資訊基金會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">8</span>
+                            <h3>財團法人自然保育與環境資訊基金會</h3>
+                            <div class="tags"><span class="tag">#環境信託及保育信託</span><span class="tag">#環境資訊揭露</span><span class="tag">#EcoDiver計畫</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>2001 年，「台灣環境資訊協會」誕生，藉由普及環境資訊交流、推動民間保護區、舉辦生態工作假期與環境教育講座，來守護山林、海洋與濕地；2024 年，本會正式轉型為自然保育與環境資訊基金會，結合農業法人資格，持續透過推動「環境信托」的模式來守護平地與淺山等重要生態棲地，為住在台灣這片土地的台北赤蛙、穿山甲、五色鳥和許多動、植物朋友們保留最棒的家園！</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-09.jpg" alt="社團法人中華民國自然生態保育協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">9</span>
+                            <h3>社團法人中華民國自然生態保育協會</h3>
+                            <div class="tags"><span class="tag">#WOW全國生物多樣性教育培訓班</span><span class="tag">#保育知識推廣</span><span class="tag">#生態守護行動</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>本會於 70 年代初期創立，以帶領大眾貼近大自然為目標，藉由認識、瞭解、與愛護自然為核心，從親近泥土、山嶽、河川中，傳遞綠色家園需要永續發展的理念。近來著重呼籲倡導「生物多樣性保育」，串連自然界各環節進而關照整個生態系。唯有體察環環相扣的自然界，並落實生物多樣性保育，才能讓生態系綿延不絕，一起為子子孫孫留下美好樂土盡一份心力！</p><p><strong>遊行當日攤位備有：</strong>「台灣保育類野生動物」插圖胸章／磁鐵——讓我們一起用心儀的保育動物們妝點自己，讓生物多樣性的保育融入生活；以及「大自然」148 期「別有洞天」、147 期「福爾摩沙蕨•饗」。本會於 1983 年創刊本土保育刊物，致力宣導台灣生態環境、生物多樣性與自然保育觀念，內容涵蓋海洋、陸域生態及動植物保育，陪伴一代又一代對保育有興趣的民眾。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-10.jpg" alt="人禾環境倫理發展基金會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">10</span>
+                            <h3>人禾環境倫理發展基金會</h3>
+                            <div class="tags"><span class="tag">#里山與生態保育</span><span class="tag">#國土生態綠網</span><span class="tag">#環境學習中心</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>人禾環境倫理發展基金會成立於 2007 年，是致力於環境教育與永續發展的非營利組織，長期推動環境學習中心建構、環境教育扎根及生態保育行動，期望深化人與自然和諧共存的環境倫理。基金會積極結合社區、學校及政府單位，透過體驗課程、公民參與及里山、溪流等生態保育計畫，提升大眾對生物多樣性與永續議題的關注，並將環境教育落實於日常生活。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-11.jpg" alt="社團法人台灣石虎保育協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">11</span>
+                            <h3>社團法人台灣石虎保育協會</h3>
+                            <div class="tags"><span class="tag">#石虎</span><span class="tag">#棲地守護</span><span class="tag">#友善耕作</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>今年，我們持續關注犬貓議題與友善農地，致力減少遊蕩犬貓對野生動物的威脅，也支持與動物共生共好的農事行動！一起選擇友善農業，愛護台灣土地，守護野生動物。</p><p><strong>現場捐款滿額回饋禮超豐富🎁</strong> 石虎系列 L 夾、原子筆、刺繡徽章！全品項各 2 款，一起用行動支持野生動物！</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-12.jpg" alt="台北市蝙蝠保育學會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">12</span>
+                            <h3>台北市蝙蝠保育學會</h3>
+                            <div class="tags"><span class="tag">#蝙蝠生態保育</span><span class="tag">#友善環境蝠友</span><span class="tag">#給蝙蝠一個家計畫</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>提到蝙蝠，你想到的是什麼？吸血、病毒，還是黑暗中令人害怕的動物？其實，蝙蝠是我們生活周遭常見，卻也經常被誤解的野生動物。牠們在生態系中扮演重要角色，有些捕食昆蟲，有些協助植物授粉與種子傳播；即使在人口密集的城市裡，公園、校園、河濱與建築物周遭，都可能有蝙蝠與我們共同生活。</p><p>台北市蝙蝠保育學會長期投入蝙蝠生態調查、研究、保育與環境教育，希望透過更多科學知識與實際行動，讓蝙蝠不再因為恐懼與錯誤資訊而受到過度的誤解。</p><p>這次「為野生動物而走」，歡迎來到我們的蝙蝠攤位！現場除了有蝙蝠繪本、可愛蝙蝠布偶及蝙蝠文創品，也準備了蝙蝠 Q&amp;A 互動，一起破解常見迷思、認識臺灣的蝙蝠。🦇 為蝙蝠而走，也為每一種被誤解的野生動物而走。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-13.jpg" alt="中華鯨豚協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">13</span>
+                            <h3>中華鯨豚協會</h3>
+                            <div class="tags"><span class="tag">#鯨豚海龜保育</span><span class="tag">#擱淺救援</span><span class="tag">#海洋生態推廣</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>中華鯨豚協會（Taiwan Cetacean Society）自 1998 年成立，全年無休地投入擱淺動物救援，甚至遠至離島，只為拯救一條誤闖陸地的生命。協會亦長年推廣海洋生態保育、提倡友善賞鯨，投入野生動物研究與政策倡議，致力守護我們的海洋鄰居與牠們的棲息地。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-14.jpg" alt="社團法人台灣兩棲類動物保育協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">14</span>
+                            <h3>社團法人台灣兩棲類動物保育協會</h3>
+                            <div class="tags"><span class="tag">#蛙類</span><span class="tag">#兩棲類調查關係</span><span class="tag">#外來入侵種控制</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>台灣兩棲類動物保育協會為依法設立非營利為目的之社會團體，以調查、保育台灣兩棲類動物及其棲地，並維護台灣生物多樣性、推廣生態保育教育、監測控制外來入侵物種為宗旨。本會的任務分為五大類：</p><ul><li><strong>調查：</strong>促進志工參與野外調查、回報調查結果，了解台灣蛙類分布現況。</li><li><strong>監測：</strong>設立蛙類重要棲地（IFAs），持續調查及監測，分析台灣蛙類野外族群變化趨勢。</li><li><strong>保育：</strong>維護生物多樣性及棲地、改善路殺情況、控制外來入侵種。</li><li><strong>推廣：</strong>辦理各項宣導活動，出版年報公布調查結果，提高大眾保育蛙類的覺知。</li><li><strong>教育：</strong>辦理各項工作坊培訓志工，提高志工專業能力。</li></ul></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-15.jpg" alt="臺灣蜂類保育協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">15</span>
+                            <h3>臺灣蜂類保育協會</h3>
+                            <div class="tags"><span class="tag">#蜜蜂生態保育</span><span class="tag">#城市養蜂</span><span class="tag">#科普教育</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>臺灣蜂類保育協會是致力於蜂類保育與生態教育的非營利組織，以推廣蜂類保育及永續生態理念為宗旨。協會長期投入蜂類生態調查、環境教育、養蜂知識推廣及人蜂衝突防治，透過講座、體驗活動與公民參與，提升大眾對蜜蜂、獨居蜂及虎頭蜂等各類蜂類的正確認識，並倡導友善環境與授粉昆蟲保育的重要性。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-16.jpg" alt="社團法人桃園市野鳥學會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">16</span>
+                            <h3>社團法人桃園市野鳥學會</h3>
+                            <div class="tags"><span class="tag">#小燕鷗</span><span class="tag">#埤塘生態保育</span><span class="tag">#野生動物救傷收容中心</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>「碰！」的一聲，又是一隻鳥兒倒在透明玻璃前。在鳥類快速飛行的視角中，透明或反光的窗戶宛如隱形殺手。</p><p>桃園市野鳥學會附設非營利野生動物診所邀請你透過「鳥兒飛行大挑戰」投擲闖關，體驗鳥類閃避障礙的難度，一起揭開窗殺的真相，學會如何在日常中守護野生鄰居！</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-17.jpg" alt="社團法人台灣黑熊保育協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">17</span>
+                            <h3>社團法人台灣黑熊保育協會</h3>
+                            <div class="tags"><span class="tag">#台灣黑熊保育</span><span class="tag">#人熊共存倡議</span><span class="tag">#棲地守護行動</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>台灣黑熊保育協會致力於保育瀕臨絕種的台灣黑熊，透過科學研究、政策倡議、教育推廣及民間資源整合，持續提升台灣熊類保育水準。我們正持續推動台灣黑熊知識普及、凝聚社會共識，促進人與黑熊的和平共存。</p><p><strong>攤位亮點：</strong></p><ul><li>豐富的台灣黑熊知識與解說</li><li>精美教具如熊頭骨、熊掌、植物種子、排遺模型</li><li>黑熊知識互動小問答，答對可獲得立體小卡禮品</li></ul></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-18.jpg" alt="社團法人拼圖喵生命平權推廣協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">18</span>
+                            <h3>社團法人拼圖喵生命平權推廣協會</h3>
+                            <div class="tags"><span class="tag">#浪貓中途之家</span><span class="tag">#貓你老師</span><span class="tag">#拼圖貓</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>拼圖喵生命平權推廣協會邀請大家來我們的攤位走走，認識我們的理念與工作內容。我們將以 TNSA【捕捉（Trap）、絕育（Neuter）、收容（Shelter）、認養（Adopt）】的行動精神為基礎，持續推廣收容與認養成為大家都能參與的日常行動。</p><p>我們也期待大家多多使用【喵加人認養平台】的服務，或者有機會到【拼圖喵給貓館】走走，讓更多毛孩有機會找到家。現場亦提供捐款受理，捐款者可獲得可愛的貓貓相關回饋品。</p><p>我們準備了清涼的貓便當茶，歡迎大家前來喝喝茶聊聊天，期待在活動中與大家一起為動物平權發聲。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-19.jpg" alt="社團法人台灣愛兔協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">19</span>
+                            <h3>社團法人台灣愛兔協會</h3>
+                            <div class="tags"><span class="tag">#野兔基地</span><span class="tag">#飼養教育</span><span class="tag">#寵物兔</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>台灣愛兔協會除了寵物兔的救援安置以外，也致力於台灣野兔的救傷及教育推廣。台灣野兔屬於台灣特有亞種的兔科動物，卻因為非瀕危物種、也非明星物種，許多人並不知道台灣山林中有這些珍貴的小國寶存在。</p><p>近年不少證據顯示台灣野兔族群正在減少，愛兔協會邀請您一起關心台灣野兔，不要等到他們消失了，才開始重視。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-20.jpg" alt="TPHA 台北城市狩獵 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">20</span>
+                            <h3>TPHA 台北城市狩獵</h3>
+                            <div class="tags"><span class="tag">#生態旅遊</span><span class="tag">#夜觀</span><span class="tag">#環境教育</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>台北城市狩獵是一個帶大人下班後走進都市近郊、在夜晚重新認識城市野生動物的生態體驗團隊。台灣的城市與森林其實離得很近。當我們走進夜晚的步道、溪流與城市邊緣，常常會發現：野生動物一直都在我們身邊，只是多數人從來沒有機會看見牠們。</p><p>我們相信，許多人並不是反對保育，而是對生態「沒有感情、沒有意識，也不知道」。因此，我們希望讓生物多樣性不只停留在知識、倡議或抽象理念，而是透過一次真實、有趣、讓人記得住的體驗，讓原本與生態毫無關係的人，也有機會開始認識、喜歡，甚至產生願意保護牠們的理由。</p><p>如果你也在思考，如何讓保育走出同溫層、讓更多不同的人與自然產生連結，或想一起發展兼顧生態保育與大眾價值的新玩法，歡迎來找我們聊聊。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-21.jpg" alt="中華民國生態專業技術服務商業同業公會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">21</span>
+                            <h3>中華民國生態專業技術服務商業同業公會</h3>
+                            <div class="tags"><span class="tag">#生態科技服務</span><span class="tag">#產業與保育共好</span><span class="tag">#生態普拉斯eco+</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>中華民國生態專業技術服務商業同業公會致力於整合臺灣生態專業技術能量，串聯生態調查、環境影響評估、生態檢核、棲地復育及永續發展等領域的專業團隊，促進產、官、學界交流合作。</p><p>公會積極推動生態專業人才培育、技術交流與制度發展，並透過教育訓練、研討會及政策倡議，提升生態專業服務品質，協助公共建設與產業發展兼顧自然保育與生物多樣性。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-22.jpg" alt="蘭陽綠野環境教育及保護協會 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">22</span>
+                            <h3>蘭陽綠野環境教育及保護協會</h3>
+                            <div class="tags"><span class="tag">#蘭陽生態守護</span><span class="tag">#在地環境教育</span><span class="tag">#綠野永續發展</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>蘭陽綠野環境教育及保護協會是以宜蘭為基地，長期投入野生動物保育、環境教育及生態推廣，致力於提升大眾對野生動物福利、生物多樣性及自然環境保護的認識。</p><p>協會透過生態解說、校園宣導、野生動物救援與保育行動，以及公民參與活動，推廣人與自然和諧共存的理念，並協助政府及民間團體共同推動環境保育工作。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-23.jpg" alt="歐帝生光電 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">23</span>
+                            <h3>歐帝生光電</h3>
+                            <div class="tags"><span class="tag">#望遠鏡</span><span class="tag">#荒野攝影</span><span class="tag">#NGO合作</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>棲地流失與生物多樣性的下降，是當今野生動物所面臨的共同挑戰。Optisan 歐帝生希望透過光學產品與其所創造的商業價值，為改善這些問題盡一份心力。</p><p>透過持續支持環境教育、推廣賞鳥活動，並投入棲地復育等保育專案，為守護自然生態貢獻力量。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-24.jpg" alt="山下無人 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">24</span>
+                            <h3>山下無人</h3>
+                            <div class="tags"><span class="tag">#羊毛氈</span><span class="tag">#自然生態手作</span><span class="tag">#雀球</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>「山下無人」是以臺灣野生動物與山林生態為主題的創作品牌，由具環境教育背景的創作者成立，希望透過羊毛氈創作、美學設計與故事分享，拉近大眾與自然的距離。</p><p>品牌以細膩的手作呈現臺灣特有種及各類野生動物，將生態知識融入作品之中，讓保育理念更貼近日常生活。除了創作展示，也積極參與市集、環境教育及保育推廣活動，期望喚起更多人對生物多樣性與野生動物保育的關注。</p></div>
+                    </details>
+                </article>
+                <article class="stall">
+                    <div class="stall-head">
+                        <img class="stall-logo" src="images/parade-2026/stalls/stall-25.jpg" alt="康麝森活 logo" loading="lazy">
+                        <div>
+                            <span class="stall-no">25</span>
+                            <h3>康麝森活</h3>
+                            <div class="tags"><span class="tag">#生態迷因圖文</span><span class="tag">#生態體驗</span><span class="tag">#夜森活</span><span class="tag">#podcast</span></div>
+                        </div>
+                    </div>
+                    <details>
+                        <summary>攤位介紹</summary>
+                        <div class="stall-body"><p>康麝森活是由一群熱愛自然的生態工作者組成的團隊，以生態保育與環境教育為核心，善於運用迷因、圖文創作、Podcast、野外導覽及文創設計等多元媒介，將艱澀的保育議題轉化為淺顯有趣的內容，讓更多人認識臺灣豐富的生物多樣性。</p><p>團隊長期關注野生動物保育、棲地維護及環境永續，希望透過創意與知識的結合，拉近大眾與自然的距離，鼓勵更多人投入保育行動。</p></div>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <section id="talks">
             <h2>短講接力</h2>
             <p class="intro">八位來自研究、救傷、教育、動保與媒體領域的講者，從石虎、穿山甲、小燕鷗、海龜到犬貓議題，分享他們在第一線看見的野生動物處境。</p>
 
@@ -653,6 +1111,43 @@
                 }
             });
         });
+
+        // Section nav: stick right under the navbar and highlight the section in view
+        (function() {
+            var nav = document.querySelector('.section-nav');
+            var navbar = document.querySelector('.navbar');
+            var list = nav.querySelector('ul');
+            var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+            var sections = links.map(function(a) { return document.querySelector(a.getAttribute('href')); });
+
+            function offset() { return navbar.offsetHeight + nav.offsetHeight; }
+            function place() {
+                nav.style.top = navbar.offsetHeight + 'px';
+                sections.forEach(function(sec) { sec.style.scrollMarginTop = (offset() + 10) + 'px'; });
+            }
+            function highlight() {
+                var line = offset() + 20;
+                var current = 0;
+                sections.forEach(function(sec, i) {
+                    if (sec.getBoundingClientRect().top <= line) current = i;
+                });
+                // At the bottom of the page, the last section is current even if short
+                if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+                    current = sections.length - 1;
+                }
+                links.forEach(function(a, i) {
+                    a.classList.toggle('current', i === current);
+                });
+                // On narrow screens the tab row scrolls sideways; keep the current tab visible
+                if (list.scrollWidth > list.clientWidth) {
+                    list.scrollLeft = links[current].offsetLeft - 12;
+                }
+            }
+            place();
+            highlight();
+            window.addEventListener('resize', function() { place(); highlight(); });
+            window.addEventListener('scroll', highlight, { passive: true });
+        })();
 
         // Event status badge (times in Taiwan, UTC+8)
         (function() {
