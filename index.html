@@ -203,6 +203,35 @@
             .container { padding: 40px 15px; }
             .animal-icons { letter-spacing: 5px; font-size: 2em; }
         }
+        .event-banner {
+            display: block;
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 55%, #8a9a4e 100%);
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 18px 20px;
+            transition: filter 0.3s;
+        }
+        .event-banner:hover { filter: brightness(1.1); }
+        .event-banner .event-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .event-banner .event-meta { opacity: 0.9; }
+        .event-banner .event-meta span { white-space: nowrap; }
+        .event-banner .event-cta {
+            display: inline-block;
+            margin-top: 8px;
+            background: #f0ead2;
+            color: #2c5530;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 2px 16px;
+        }
+        @media (max-width: 768px) {
+            .event-banner { padding: 14px 16px; }
+            .event-banner .event-title { font-size: 1.1em; }
+        }
     </style>
 </head>
 <body>
@@ -236,6 +265,12 @@
             </ul>
         </div>
     </nav>
+
+    <a class="event-banner" href="event.html">
+        <div class="event-title">🐾 第三屆為野生動物而走遊行</div>
+        <div class="event-meta"><span>2026 / 09 / 19（六）11:00 – 17:30</span>・<span>台北市立法院群賢樓旁</span></div>
+        <span class="event-cta">活動流程與短講講者 →</span>
+    </a>
 
     <div class="banner">
         <img src="banner.jpg" alt="2024 Taiwan Wildlife Parade - 為野生動物而走">
