@@ -299,6 +299,48 @@
             padding: 1px 12px;
         }
 
+        /* Signs */
+        .sign-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .sign-card {
+            display: block;
+            background: #f8faf8;
+            border: 1px solid #e0eae0;
+            border-radius: 8px;
+            overflow: hidden;
+            color: #2c5530;
+            text-decoration: none;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .sign-card:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+        .sign-card img {
+            width: 100%;
+            aspect-ratio: 1000 / 707;
+            display: block;
+        }
+        .sign-card .sign-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+        }
+        .sign-card .sign-text { font-weight: bold; }
+        .sign-card .sign-dl {
+            flex-shrink: 0;
+            background: #2c5530;
+            color: #fff;
+            font-size: 0.85em;
+            border-radius: 4px;
+            padding: 2px 10px;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -343,6 +385,7 @@
             .container { padding: 24px 16px; }
             .speaker { grid-template-columns: 1fr; gap: 16px; }
             .speaker-photo { max-width: 360px; }
+            .sign-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -412,6 +455,29 @@
                 <li><span class="time">15:00</span><span>短講開始</span></li>
                 <li><span class="time">17:30</span><span>活動結束</span></li>
             </ul>
+        </section>
+
+        <section>
+            <h2>手拿標語下載</h2>
+            <p class="intro">歡迎下載列印，帶著標語一起上街為野生動物發聲！點選圖片即可下載 A3 尺寸 PDF 檔。</p>
+            <div class="sign-grid">
+                <a class="sign-card" href="files/parade-2026/sign-1.pdf" download="野生動物正告急，犬貓有家不遊蕩.pdf">
+                    <img src="images/parade-2026/sign-1.jpg" alt="手拿標語：野生動物正告急，犬貓有家不遊蕩" loading="lazy">
+                    <div class="sign-foot"><span class="sign-text">野生動物正告急，犬貓有家不遊蕩</span><span class="sign-dl">⬇ PDF</span></div>
+                </a>
+                <a class="sign-card" href="files/parade-2026/sign-2.pdf" download="遊蕩犬貓有法可管，棲地保護刻不容緩.pdf">
+                    <img src="images/parade-2026/sign-2.jpg" alt="手拿標語：遊蕩犬貓有法可管，棲地保護刻不容緩" loading="lazy">
+                    <div class="sign-foot"><span class="sign-text">遊蕩犬貓有法可管，棲地保護刻不容緩</span><span class="sign-dl">⬇ PDF</span></div>
+                </a>
+                <a class="sign-card" href="files/parade-2026/sign-3.pdf" download="野生動物難等待，公共政策納生態.pdf">
+                    <img src="images/parade-2026/sign-3.jpg" alt="手拿標語：野生動物難等待，公共政策納生態" loading="lazy">
+                    <div class="sign-foot"><span class="sign-text">野生動物難等待，公共政策納生態</span><span class="sign-dl">⬇ PDF</span></div>
+                </a>
+                <a class="sign-card" href="files/parade-2026/sign-4.pdf" download="好意餵食不是愛，野生動物受傷害.pdf">
+                    <img src="images/parade-2026/sign-4.jpg" alt="手拿標語：好意餵食不是愛，野生動物受傷害" loading="lazy">
+                    <div class="sign-foot"><span class="sign-text">好意餵食不是愛，野生動物受傷害</span><span class="sign-dl">⬇ PDF</span></div>
+                </a>
+            </div>
         </section>
 
         <section>
